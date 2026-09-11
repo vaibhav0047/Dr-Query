@@ -2,7 +2,10 @@ from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from typing import List
-from langchain.schema import Document
+try:
+    from langchain_core.documents import Document
+except ImportError:
+    from langchain.schema import Document
 
 
 #Extract Data From the PDF File
